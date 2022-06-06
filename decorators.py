@@ -1,8 +1,10 @@
 from functools import wraps
 
+
 def decorator(name):
     print('inside decorator: %s' % name)
     def outer_wrapper(f):
+        @wraps(f)
         def wrapper(*args, **kwargs):
             print('inside wrapper: before')
             result = f(*args, **kwargs)
@@ -11,10 +13,22 @@ def decorator(name):
         return wrapper
     return outer_wrapper
 
-@decorator('hello world')
-def function():
-    print('inside function')
+
+@decorator('A')
+def function_a():
+    print('inside function A')
     return 1
 
-result = function()
+
+@decorator('B')
+def function_b():
+    print('inside function B')
+    return 2
+
+
+result = function_a()
 print('after function: %i' % result)
+
+result = function_b()
+print('after function %i' % result)
+
