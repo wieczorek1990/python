@@ -13,6 +13,8 @@ match matched:
     case ['go', argument]:
         direction = argument
         print(f'We go {direction}.')
+    case [*directions]:
+        print('How can we do so?')
     case _:
         print('Where do you want to go?')
 
