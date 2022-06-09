@@ -10,8 +10,7 @@ match matched:
         print('South we go!')
     case ['west'] | ['east']:
         print('Let\'s go south or north!')
-    case ['go', argument]:
-        direction = argument
+    case ['go', direction]:
         print(f'We go {direction}.')
     case [*directions]:
         print('How can we do so?')
